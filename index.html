@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <img class="ml-2" src="weather.gif" alt="">
+        <a class="navbar-brand" href="#">Weather App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item" id="aboutthisapp">
+              <a class="nav-link" href="#">About This App</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              id="city"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              required
+            />
+            <button class="btn btn-outline-success" id="submit" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+      
+    </nav>
+    <div class="alert alert-warning" style="display: none;" role="alert" style="position: absolute;right: 1vw;top: 4vw;padding: 0.7vw 4vw;">
+      Please filled this input!
+    </div>
+    <!-- NavBar End -->
+          <div class="conatiner" id="weather_city">
+
+                            <div class="container" id="onload">
+                              <div class="onload_cc">
+                                <l-tail-chase size="40" speed="1.75" color="black"></l-tail-chase>
+                              </div>
+                            </div>
+
+                            <div class="container" id="searchcity">
+                              <h1 class="text-center">Welcome to the Weather App!</h1>
+                              <p class="text-center mt-4">Please enter a city name to check the weather.</p>
+                              <p class="text-center mt-2">Type the city name in the search bar and press 'Enter' or click 'Search' to get the latest weather information.</p>
+                            </div>
+
+
+                            <div class="container" id="notFound">
+                              <h1 class="text-center mt-4" id="notFound_h1">Invalid city name entered. Please enter a valid city name.</h1>
+                            </div>
+
+
+
+                            <div class="container">
+                              <div id="weather_update">
+                              <h1 class="my-4 text-center" id="container_heading">
+                                Weather for <span id="cityName"></span>, <span id="countryName"></span>
+                              </h1>
+                              <main id="container_main">
+                                  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                                    <div class="col">
+                                      <div class="card mb-4 rounded-3 shadow-sm">
+                                        <div class="card-header py-3">
+                                          <h4 class="my-0 fw-normal">Temperature Info</h4>
+                                        </div>
+                                        <div class="card-body p-4">
+                                          <h1 class="card-title pricing-card-title">
+                                            <span id="temp2"></span><span>&#8451;</span>
+                                          </h1>
+                                          <ul class="list-unstyled mt-3 mb-4">
+                                            <li>Temperature is <span id="temp"></span></li>
+                                            <li>Min Temperature is <span id="temp_min"></span></li>
+                                            <li>Max Temperature is <span id="temp_max"></span></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card mb-4 rounded-3 shadow-sm">
+                                        <div class="card-header py-3">
+                                          <h4 class="my-0 fw-normal">Weather Condition</h4>
+                                        </div>
+                                        <div class="card-body">
+                                          <h1 class="card-title pricing-card-title">
+                                            <span id="humidity2"></span>%
+                                          </h1>
+                                          <ul class="list-unstyled mt-3 mb-4">
+                                            <li>Weather is <span id="haze"></span></li>
+                                            <li>Feels like is <span id="feels_like"></span></li>
+                                            <li>Humidity is <span id="humidity"></span></li>
+                                            <li>Pressure is <span id="pressure"></span></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                                        <div class="card-header py-3 text-bg-primary border-primary">
+                                          <h4 class="my-0 fw-normal">Weather Info</h4>
+                                        </div>
+                                        <div class="card-body">
+                                          <h1 class="card-title pricing-card-title">
+                                            <span id="wind2"></span> kph
+                                          </h1>
+                                          <ul class="list-unstyled mt-3 mb-4">
+                                            <li>Wind is <span id="wind"></span></li>
+                                            <li>Moonrise is <span id="moonrise"></span></li>
+                                            <li>Sunrise is <span id="sunrise"></span></li>
+                                            <li>Sunset is <span id="sunset"></span></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+          </div>
+    <div class="container" style="user-select: none;">
+        <h2 class="display-6 text-center mb-4">
+          Weather of Other common places
+        </h2>
+
+        <div class="table-responsive">
+          <table id="tableg" class="table text-center">
+            <thead>
+              <tr class="trrr">
+                <th>Cities</th>
+                <th>Weather</th>
+                <th>Feels Like</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
+                <th>Wind</th>
+                <th>Temp</th>
+                <th>Temp_max</th>
+                <th>Temp_min</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="islamabad-row">
+                <th scope="row" class="text-start">Islamabad, Pakistan</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+              <tr id="delhi-row">
+                <th scope="row" class="text-start">Delhi, India</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+              <tr id="tokyo-row">
+                <th scope="row" class="text-start">Tokyo, Japan</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+              <tr id="riyadh-row">
+                <th scope="row" class="text-start">Riyadh, Saudi Arabia</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+              <tr id="canberra-row">
+                <th scope="row" class="text-start">Canberra, Australia</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+              <tr id="baku-row">
+                <th scope="row" class="text-start">Baku, Azerbaijan</th>
+                <td class="weather"></td>
+                <td class="feels_like"></td>
+                <td class="humidity"></td>
+                <td class="pressure"></td>
+                <td class="wind"></td>
+                <td class="temp"></td>
+                <td class="temp_max"></td>
+                <td class="temp_min"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      
+    </div>
+
+    <div style="max-width: 100vw;">
+      <footer class="bg-dark text-light py-4">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12 text-center">
+                      <p id="copyright"></p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+  </div>
+
+    <div id="popup">
+      <div class="card p-4" id="popup-card" style="width: 40rem">
+        <div class="card-body">
+          <h5 class="card-title">About</h5>
+          <p class="card-text">
+            The Weather App is a free online platform designed to provide users
+            with real-time weather information for cities worldwide. Its purpose
+            is to offer users easy access to up-to-date weather data, helping
+            them plan activities, travels, and stay informed about weather
+            conditions in their local area or any global destination. Whether
+            for travelers, residents, or weather enthusiasts, the app's
+            user-friendly interface and comprehensive data make it a valuable
+            resource for weather-related decision-making.
+          </p>
+          <a href="#" class="goback btn btn-primary">Go back</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="rapid.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/tailChase.js"
+    ></script>
+  </body>
+</html>
